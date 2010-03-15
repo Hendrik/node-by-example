@@ -1,0 +1,20 @@
+INSTALL
+
+You need the following apps & addons to run the "node-by-example" code samples:
+
+Apps:
+- node.js: http://nodejs.org/
+- MySQL: http://mysql.com/
+- DBSlayer: http://code.nytimes.com/projects/dbslayer
+
+
+node.js Addons:
+- node-geoip: http://github.com/strange/node-geoip
+- node.ws.js: http://github.com/ncr/node.ws.js
+- node-ws-client.js: http://code.google.com/p/revhttp/source/browse/trunk/nodejs/node-ws-client.js
+- node.dbslayer.js: http://github.com/shoeman22/node.dbslayer.js
+
+
+Other:
+- Browser with WebSocket support, e.g.: Google Chrome: http://www.google.com/chrome/
+- Google maps api key
