@@ -6,7 +6,7 @@ if (!filename)
 
 // create child process and add a listener for its "output" event
 var tail = require("child_process").spawn("tail", ["-f", filename]);
-tail.addListener("output", function(data) {
+tail.stdout.addListener("data", function(data) {
   sys.puts(data);
 });
 tail.addListener("exit", function(code) {

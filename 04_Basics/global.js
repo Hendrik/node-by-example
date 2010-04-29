@@ -1,5 +1,5 @@
 var sys = require("sys"),
-    some_argument = process.ARGV[2];
+    some_argument = process.argv[2];
 
 // argument example
 if (!some_argument) {
