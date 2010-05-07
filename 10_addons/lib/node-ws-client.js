@@ -175,7 +175,10 @@ exports.createClient = function (webSocketUri, clientOrigin) {
     
   emitter.write = function (data) {
     try {
-      socket.write('\u0000' + data + '\uffff');
+//      socket.write('\u0000' + data + '\uffff');
+        socket.write('\u0000', 'binary');
+        socket.write(data, 'utf8');
+        socket.write('\uffff', 'binary');
     } catch(e) { 
       socket.end();
     }

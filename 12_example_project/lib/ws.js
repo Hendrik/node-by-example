@@ -22,8 +22,8 @@ var sys = require("sys"),
     /^Origin: (.+)$/
   ],
   handshakeTemplate = [
-    'HTTP/1.1 101 Web Socket Protocol Handshake', 
-    'Upgrade: WebSocket', 
+    'HTTP/1.1 101 Web Socket Protocol Handshake',
+    'Upgrade: WebSocket',
     'Connection: Upgrade',
     'WebSocket-Origin: {origin}',
     'WebSocket-Location: ws://{host}{resource}',
@@ -44,8 +44,10 @@ exports.createServer = function (websocketListener) {
       
     function handle(data) {
       buffer += data;
-      var chunks = buffer.split("\uffff");
-      var count = chunks.length - 1; // last is "" or a partial packet
+      
+      var chunks = buffer.split("\ufffd"),
+        count = chunks.length - 1; // last is "" or a partial packet
+        
       for(var i = 0; i < count; i++) {
         var chunk = chunks[i];
         if(chunk[0] == "\u0000") {
@@ -84,8 +86,8 @@ exports.createServer = function (websocketListener) {
 
       socket.write(nano(handshakeTemplate, {
         resource: matches[0],
-        host:     matches[1],
-        origin:   matches[2],
+        host: matches[1],
+        origin: matches[2],
       }));
 
       handshaked = true;
@@ -112,9 +114,9 @@ exports.createServer = function (websocketListener) {
       try {
         socket.write('\u0000', 'binary');
         socket.write(data, 'utf8');
-        socket.write('\uffff', "binary");
-      } catch(e) { 
-        // Socket not open for writing, 
+        socket.write('\uffff', 'binary');
+      } catch(e) {
+        // Socket not open for writing,
         // should get "close" event just before.
         socket.end();
       }
