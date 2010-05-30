@@ -6,7 +6,7 @@ var sys = require('sys'),
     filename = process.ARGV[2];
 
 if (!filename)
-    return sys.puts('Usage: node " + __filename + " filename');
+    return sys.puts('Usage: node ' + __filename + ' filename');
 
 function result_output(result, websocket) {
   var json_result = {};

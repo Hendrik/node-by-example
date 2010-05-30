@@ -34,7 +34,7 @@ function display_form(request, response) {
 }
 
 function upload_file(request, response) {
-  request.setBodyEncoding('binary');
+  request.setEncoding('binary');
 
   var stream = new multipart.Stream(request);
 
